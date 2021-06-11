@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot name="ar_tag">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.03 0.06 0.18"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.09"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+  
+  <link name="marker_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.00025"/>
+      </geometry>
+      <origin rpy="0 0 3.141592" xyz="0 0 0.015"/>
+      <material name="white"/>
+    </visual>
+  </link>
+  
+  <joint name="base_to_marker" type="fixed">
+    <parent link="base_link"/>
+    <child link="marker_link"/>
+    <origin rpy="0 1.57075 0" xyz="0 0 0.15"/>
+  </joint>
+  
+</robot>

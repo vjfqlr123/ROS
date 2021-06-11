@@ -1,0 +1,12 @@
+<launch>
+	<node pkg="simple_navigation_goals" type="pub_ar_pose.py" name="ar_pose" respawn="true" />
+	<node pkg="simple_navigation_goals" type="pub_tb3_pose2d.py" name="tb3_pose2d" respawn="true" />
+	
+	<node pkg="simple_navigation_goals" type="step1_simple_navigation.py" name="step1_nav_arrive" output="screen" respawn="true" respawn_delay="5" >
+	    <param name="nav_arrive_end" type="int" value="1" />
+	    <param name="target" type="int" value="1" />
+	    <param name="complete" type="bool" value="false" />
+	</node>
+	
+	<node pkg="simple_navigation_goals" type="step2_move_marker.py" name="step2_marker_arrive" respawn="true" output="screen" respawn_delay="5" />
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/devel
+
+Name: roscpp_tutorial
+Description: Description of roscpp_tutorial
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

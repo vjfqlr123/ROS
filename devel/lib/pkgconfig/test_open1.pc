@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/devel
+
+Name: test_open1
+Description: Description of test_open1
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

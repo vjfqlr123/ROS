@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/install
+
+Name: tb3_urdf_n_tf
+Description: Description of tb3_urdf_n_tf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: urdf xacro

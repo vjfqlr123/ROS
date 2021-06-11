@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/install
+
+Name: rqt_my_plugin
+Description: Description of rqt_my_plugin
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

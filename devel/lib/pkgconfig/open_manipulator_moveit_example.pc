@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/devel
+
+Name: open_manipulator_moveit_example
+Description: Description of open_manipulator_moveit_example
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

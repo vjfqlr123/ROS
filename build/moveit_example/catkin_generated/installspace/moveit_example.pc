@@ -1,0 +1,8 @@
+prefix=/home/dody3333/catkin_ws/install
+
+Name: moveit_example
+Description: Description of moveit_example
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
