@@ -5,11 +5,13 @@ import rospy
 import actionlib
 import rosmaster.master_api
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from turtlesim.msg import Pose
+from geometry_msgs.msg import Twist
 
-destination1 = [[1.0, 0.5, 0.0]]
-destination2 = [[1.0, 0.5, 0.0]]
-destination3 = [[1.0, 1.0, 0.0]]
-orientation = (0.0, 0.0, 0.0, 1.0)
+destination1 = [[2.0, 2.4, 0.0]]
+#destination1 = [[1.88, 1.88, 0.0]]
+orientation = (0.0, 0.0, 1.0, 1.0)
+
 
 def movebase_client(dest, orient):
 
@@ -34,30 +36,21 @@ def movebase_client(dest, orient):
         rospy.signal_shutdown("Action server not available!")
     else:
         return client.get_result()
+        
 
 if __name__ == '__main__':
     try:
         rospy.init_node('movebase_client_py')
+
         arrive = rospy.get_param("/step1_nav_arrive/nav_arrive_end") 
-        task = rospy.get_param("/step1_nav_arrive/target")
-        complete = rospy.get_param("/step1_nav_arrive/complete") 
         
         if arrive == False:
-            if task == 1:
-                i = 0
-                while i < 1:
-                    movebase_client(destination1[i], orientation) 
-                    i = i + 1
-                
-                rospy.set_param("/step1_nav_arrive/nav_arrive_end", 1)    
+            i = 0
+            while i < 1:
+                movebase_client(destination1[i], orientation) 
+                i = i + 1
             
-            elif task == 2:                   
-                i = 0
-                while i < 1:
-                    movebase_client(destination2[i], orientation) 
-                    i = i + 1
-        
-                rospy.set_param("/step1_nav_arrive/nav_arrive_end", 2)       
+            rospy.set_param("/step1_nav_arrive/nav_arrive_end", True)         
                  
             rospy.loginfo("Goal execution done!")
             

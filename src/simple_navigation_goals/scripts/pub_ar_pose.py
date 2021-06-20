@@ -6,7 +6,9 @@ from math import degrees, pi, sin, cos
 from ar_track_alvar_msgs.msg import AlvarMarkers
 from tf.transformations import euler_from_quaternion
 
-TARGET_ID =  1
+TARGET_ID =  3
+
+K = 0.14
 
 class MarkerPose:
 
@@ -84,8 +86,8 @@ class MarkerPose:
         if theta > pi * 2:
             theta = theta - pi * 2
         
-        pos_x =  msg.pose.pose.position.z * cos(theta)
-        pos_y =  msg.pose.pose.position.z * sin(theta)
+        pos_x =  (K + msg.pose.pose.position.z) * cos(theta)
+        pos_y =  (K + msg.pose.pose.position.z) * sin(theta)
 
         return pos_x, pos_y, theta
     

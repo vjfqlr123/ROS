@@ -11,21 +11,17 @@ class Scanning:
         rospy.init_node('scanning', anonymous = True)
         rospy.Subscriber('/scan', LaserScan, self.check_target)
         self.pub = rospy.Publisher('/dist_scan', Float32, queue_size = 10)
-        self.min_ranges = 0
-
+        
     def check_target(self, msg):
         t1 = msg.ranges
-        min_range = min(i for i in t1 if i > 0.05)
-        min_index = t1.index(min_range)
-
-        if min_index > 80 and min_index < 280:
-            pass
-        else:
-            self.min_range = min_range
-            print(round(self.min_range,4))
-        
         p = Float32()
-        p = min_range
+        
+        a = t1[0:50]
+        b = t1[310:]        
+        c = a + b    
+           
+        print(min(i for i in c if i > 0.05))        
+        p = min(i for i in c if i > 0.05)
         self.pub.publish(p)    
 
 if __name__ == '__main__':

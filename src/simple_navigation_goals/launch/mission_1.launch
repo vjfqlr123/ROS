@@ -1,9 +1,12 @@
 <launch>
+	<include file="$(find ar_marker)/launch/turtlebot3_marker.launch"/>
+	
 	<node pkg="simple_navigation_goals" type="pub_ar_pose.py" name="ar_pose" respawn="true" />
 	<node pkg="simple_navigation_goals" type="pub_tb3_pose2d.py" name="tb3_pose2d" respawn="true" />
+	<node pkg="simple_navigation_goals" type="pub_scan_float32.py" name="scan_float32" respawn="true" />
 	
 	<node pkg="simple_navigation_goals" type="step1_simple_navigation.py" name="step1_nav_arrive" output="screen" respawn="true" respawn_delay="5" >
-	    <param name="nav_arrive_end" type="int" value="1" />
+	    <param name="nav_arrive_end" type="bool" value="false" />
 	    <param name="target" type="int" value="1" />
 	    <param name="complete" type="bool" value="false" />
 	</node>
